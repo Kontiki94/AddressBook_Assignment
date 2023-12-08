@@ -1,0 +1,12 @@
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\bin\Debug\net8.0\Assignment_AddressBook.Shared.deps.json
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\bin\Debug\net8.0\Assignment_AddressBook.Shared.dll
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\bin\Debug\net8.0\Assignment_AddressBook.Shared.pdb
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.AssemblyInfoInputs.cache
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.AssemblyInfo.cs
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.csproj.CoreCompileInputs.cache
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.dll
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\refint\Assignment_AddressBook.Shared.dll
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.pdb
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\ref\Assignment_AddressBook.Shared.dll
+C:\Users\hassa\source\repos\ClassLibrary\Assignment_AddressBook.Shared\obj\Debug\net8.0\Assignment_AddressBook.Shared.csproj.AssemblyReference.cache
