@@ -10,11 +10,12 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel>
-            <Button Content="Add a contact" Width="150" Margin="5" Command="{Binding NavigateToAddContactCommand}"/>
-            <Button Content="View a contact" Width="150" Margin="5" Command="{Binding NavigateToOneContactCommand}"/>
-            <Button Content="Show addressbook" Width="150" Margin="5" Command="{Binding NavigateToAllContactsCommand}"/>
+
+    <Grid Background="#99B4D1">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="AddressBook where you can add/edit/remove contacts" Margin="0,0,0,10" FontSize="25"/>
+            <Button Content="Add a contact" Width="150" Margin="0,0,0,10" Command="{Binding NavigateToAddContactCommand}" Background="LightGray"/>
+            <Button Content="Show addressbook" Width="150" Command="{Binding NavigateToAllContactsCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

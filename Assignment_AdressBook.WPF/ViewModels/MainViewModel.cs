@@ -7,6 +7,7 @@ public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
     private ObservableObject? _currentViewModel;
+
     private readonly IServiceProvider _serviceProvider;
 
     public MainViewModel(IServiceProvider serviceProvider)

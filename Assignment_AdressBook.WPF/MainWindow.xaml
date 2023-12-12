@@ -10,28 +10,28 @@
         
         
         mc:Ignorable="d"
-        Title="AddressBook" Height="500" Width="400">
-    <Grid>
-        <ContentControl Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-                
-                <DataTemplate DataType="{x:Type viewmodels:ViewOptionsModel}">
-                    <views:ViewOptionsView />
-                </DataTemplate>
-                
-                <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
-                    <views:AddContactView />
-                </DataTemplate>
+        Title="AddressBook" Height="500" Width="800">
+        <Grid>
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
 
-                <DataTemplate DataType="{x:Type viewmodels:OneContactViewModel}">
-                    <views:OneContactView />
-                </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:ViewOptionsModel}">
+                        <views:ViewOptionsView />
+                    </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewmodels:AllContactsViewModel}">
-                    <views:AllContactsView />
-                </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
+                        <views:AddContactView />
+                    </DataTemplate>
 
-            </ContentControl.Resources>
-        </ContentControl>
-    </Grid>
+                    <DataTemplate DataType="{x:Type viewmodels:AllContactsViewModel}">
+                        <views:AllContactsView />
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewmodels:UpdateContactViewModel}">
+                        <views:UpdateContactView />
+                    </DataTemplate>
+
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
 </Window>

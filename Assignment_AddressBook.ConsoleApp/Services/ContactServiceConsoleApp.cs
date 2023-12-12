@@ -1,5 +1,6 @@
 ﻿using Assignment_AddressBook.ConsoleApp.Utilities;
 using Assignment_AddressBook.Shared.Interfaces;
+using Assignment_AddressBook.Shared.Models;
 using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
 namespace Assignment_AddressBook.ConsoleApp.Services;
@@ -13,7 +14,10 @@ public class ContactServiceConsoleApp
     {
         _contactService = contactService;
     }
-
+    /// <summary>
+    /// Creates an empty instace of a contact. Lets the user fill in each property then checks if email already exists in the list, if not adds contact to the list.
+    /// </summary>
+    /// <param name="contact">Contact to be added</param>
     public void AddContact(IContact contact)
     {
         try
@@ -29,7 +33,7 @@ public class ContactServiceConsoleApp
             contact.Phone = Console.ReadLine()!;
             Console.Write("Enter the address: ");
             contact.Address = Console.ReadLine()!;
-            if (_contactList.Any(x => x.Email == contact.Email))
+            if (_contactList.Any(x => x.Email.ToLower() == contact.Email.ToLower()))
             {
                 Console.WriteLine("A contact with this email already exists! Press Any key to return.");
                 Console.ReadKey();
@@ -39,12 +43,13 @@ public class ContactServiceConsoleApp
                 _contactService.AddContactToList(contact);
                 Console.WriteLine("Contact added to addressbook!");
                 _helpers.PressAnyKey();
-                
             }
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
-
+    /// <summary>
+    /// Grabs an IEnum of all the contacts then loops out every contact in the list. ContactInfo() displays every property of each contact
+    /// </summary>
     public void ShowAllContacts()
     {
         try
@@ -59,18 +64,20 @@ public class ContactServiceConsoleApp
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
+    /// <summary>
+    /// Reads existing list, checks if an email already exists(converts to lower case). Uses ContactInfo() to print out the information
+    /// </summary>
     public void ShowOneContact()
     {
         try
         {
+            IEnumerable<IContact> _contactList = _contactService.GetAllContactsFromList();
             Console.Write("Enter the email of the contact you want to view: ");
             string email = Console.ReadLine()!;
             IContact contact = _contactService.GetOneContactFromList(email);
 
-            if (contact != null)
-            {
+            if (_contactList.Any(x => x.Email.ToLower() == contact.Email.ToLower()))
                 ContactInfo(contact);
-            }
             else
             {
                 _helpers.ContactDoesNotExist();
@@ -80,14 +87,16 @@ public class ContactServiceConsoleApp
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
-
+    /// <summary>
+    /// User inputs contact email to which contact they want to update. If contact is found user can change any property of the contact
+    /// </summary>
     public void UpdateContact()
     {
         try
         {
             Console.Write("Enter the email of the contact you want to edit: ");
-            string email = Console.ReadLine()!;
-            IContact contact = _contactService.GetOneContactFromList(email);
+            string email = Console.ReadLine()!.ToLower();
+            IContact contact = _contactService.GetOneContactFromList(email.ToLower());
             if (contact == null)
             {
                 _helpers.NoValidInput();
@@ -145,7 +154,9 @@ public class ContactServiceConsoleApp
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
-
+    /// <summary>
+    /// User inputs contact email for which contact they want to remove. Sends to ContactService method, returns true if succesful and contact is deleted from list.
+    /// </summary>
     public void RemoveContact()
     {
         try
@@ -167,7 +178,10 @@ public class ContactServiceConsoleApp
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
-
+    /// <summary>
+    /// Method to display contact properties
+    /// </summary>
+    /// <param name="contact">The contact to be displayed</param>
     public void ContactInfo(IContact contact)
     {
         try

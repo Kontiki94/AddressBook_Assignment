@@ -29,8 +29,8 @@ public partial class App : Application
                 services.AddSingleton<AddContactView>();
                 services.AddSingleton<AllContactsViewModel>();
                 services.AddSingleton<AllContactsView>();
-                services.AddSingleton<OneContactViewModel>();
-                services.AddSingleton<OneContactView>();
+                services.AddSingleton<UpdateContactViewModel>();
+                services.AddSingleton<UpdateContactView>();
             })
             .Build();
     }
