@@ -5,9 +5,16 @@ namespace Assignment_AddressBook.Shared.Services;
 
 public class ContactService : IContactService
 {
-    private readonly IFileManager _fileManager = new FileManager();
+    private readonly IFileManager _fileManager;
+
+    public ContactService(IFileManager fileManager)
+    {
+        _fileManager = fileManager;
+    }
+
     private List<IContact> _contactList = [];
     private readonly string _filepath = @"C:\Users\hassa\source\repos\ClassLibrary\Contacts.json";
+
     public bool AddContactToList(IContact contact)
     {
         try
@@ -18,11 +25,6 @@ public class ContactService : IContactService
                 string json = JsonConvert.SerializeObject(_contactList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
                 var result = _fileManager.SaveToFile(_filepath, json);
                 return result;
-            }
-            else
-            {
-                Console.WriteLine("Contact with this email already exists please try again");
-                Console.ReadKey();
             }
         }
         catch (Exception ex) { Debug.WriteLine(ex.Message); }
@@ -54,7 +56,7 @@ public class ContactService : IContactService
             string json = JsonConvert.SerializeObject(_contactList, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             _fileManager.SaveToFile(_filepath, json);
         }
-        catch(Exception ex) { Debug.WriteLine(ex.Message); }
+        catch (Exception ex) { Debug.WriteLine(ex.Message); }
     }
     public bool RemoveContactFromList(string email)
     {

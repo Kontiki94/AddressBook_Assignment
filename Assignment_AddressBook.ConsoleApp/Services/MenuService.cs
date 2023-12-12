@@ -1,5 +1,4 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-
 namespace Assignment_AddressBook.ConsoleApp.Services;
 
 internal class MenuService

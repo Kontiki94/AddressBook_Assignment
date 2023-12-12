@@ -14,6 +14,7 @@ public class Program
         var builder = Host.CreateDefaultBuilder().ConfigureServices(services =>
         {
             services.AddSingleton<IContact, Contact>();
+            services.AddSingleton<IFileManager, FileManager>();
             services.AddSingleton<IContactService, ContactService>();
             services.AddSingleton<ContactServiceConsoleApp>();
             services.AddSingleton<MenuService>();

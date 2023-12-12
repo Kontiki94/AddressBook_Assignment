@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Assignment_AddressBook.Shared.Services;
 
-internal class FileManager : IFileManager
+public class FileManager : IFileManager
 {
     public string GetContentFromFile(string filepath)
     {
@@ -17,7 +17,6 @@ internal class FileManager : IFileManager
         catch(Exception ex) { Debug.WriteLine(ex.Message); }
         return null!;
     }
-
     public bool SaveToFile(string filepath, string content)
     {
         try
