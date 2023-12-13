@@ -1,4 +1,6 @@
-﻿namespace Assignment_AddressBook.Shared.Interfaces;
+﻿using System.Collections.ObjectModel;
+
+namespace Assignment_AddressBook.Shared.Interfaces;
 
 public interface IContactService
 {

@@ -36,7 +36,7 @@ public class ContactService : IContactService
         return false;
     }
     /// <summary>
-    /// Fetches all objects from json file and deserializes objects into a list
+    /// Fetches all text from json file and deserializes objects into a list
     /// </summary>
     /// <returns>Deserialized objects in a list </returns>
     public IEnumerable<IContact> GetAllContactsFromList()

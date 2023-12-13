@@ -9,7 +9,7 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:UpdateContactViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="#99B4D1">
         <StackPanel HorizontalAlignment="center">
             <Label Content="First name"/>
             <TextBox Text="{Binding Contact.FirstName}" />

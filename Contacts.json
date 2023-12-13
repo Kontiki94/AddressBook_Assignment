@@ -1,1 +1,1 @@
-{"$type":"System.Collections.Generic.List`1[[Assignment_AddressBook.Shared.Interfaces.IContact, Assignment_AddressBook.Shared]], System.Private.CoreLib","$values":[{"$type":"Assignment_AddressBook.Shared.Models.Contact, Assignment_AddressBook.Shared","FirstName":"Hassan","LastName":"Tast","Email":"hassan@domain.com","Phone":"0701234567","Address":"tastvägen 1","Id":"2b050318-60fc-44ab-a1c2-553c5eb08e4f"}]}
+{"$type":"System.Collections.Generic.List`1[[Assignment_AddressBook.Shared.Interfaces.IContact, Assignment_AddressBook.Shared]], System.Private.CoreLib","$values":[]}
