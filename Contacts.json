@@ -1,1 +1,1 @@
-{"$type":"System.Collections.Generic.List`1[[Assignment_AddressBook.Shared.Interfaces.IContact, Assignment_AddressBook.Shared]], System.Private.CoreLib","$values":[]}
+{"$type":"System.Collections.ObjectModel.ObservableCollection`1[[Assignment_AddressBook.Shared.Interfaces.IContact, Assignment_AddressBook.Shared]], System.ObjectModel","$values":[{"$type":"Assignment_AddressBook.Shared.Models.Contact, Assignment_AddressBook.Shared","FirstName":"a","LastName":"a","Email":"a","Phone":"a","Address":"a","Id":"0f222c07-18a2-4319-8e76-26489082da52"}]}

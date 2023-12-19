@@ -16,12 +16,11 @@ public partial class AllContactsViewModel : ObservableObject
     private IContactService _contactService;
     private UpdateContactViewModel _updateContactViewModel;
 
+    [ObservableProperty]
+    private ObservableCollection<IContact> _contactList;
 
     [ObservableProperty]
     private IContact? contact;
-
-    [ObservableProperty]
-    private IEnumerable<IContact> _contactList;
 
 
     public AllContactsViewModel(IServiceProvider serviceProvider, IContactService contactService, UpdateContactViewModel updateContactViewModel)
@@ -39,7 +38,6 @@ public partial class AllContactsViewModel : ObservableObject
         if (removed)
         {
             MessageBox.Show("Contact removed!");
-            
         }
         else
         {

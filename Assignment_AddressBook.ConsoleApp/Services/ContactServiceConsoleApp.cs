@@ -71,19 +71,21 @@ public class ContactServiceConsoleApp
     {
         try
         {
-            IEnumerable<IContact> _contactList = _contactService.GetAllContactsFromList();
             Console.Write("Enter the email of the contact you want to view: ");
             string email = Console.ReadLine()!;
-            IContact contact = _contactService.GetOneContactFromList(email);
-
-            if (_contactList.Any(x => x.Email.ToLower() == contact.Email.ToLower()))
-                ContactInfo(contact);
-            else
+            if (!string.IsNullOrEmpty(email))
             {
-                _helpers.ContactDoesNotExist();
-                _helpers.PressAnyKey();
+                IContact contact = _contactService.GetOneContactFromList(email);
+                if (contact is not null)
+                {
+                    ContactInfo(contact);
+                }
+                else
+                {
+                    _helpers.ContactDoesNotExist();
+                    _helpers.PressAnyKey();
+                }
             }
-            Console.ReadKey();
         }
         catch (Exception ex) { Console.WriteLine(ex.Message); }
     }

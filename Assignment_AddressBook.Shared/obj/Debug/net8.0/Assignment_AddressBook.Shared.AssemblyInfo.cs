@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Assignment_AddressBook.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c16903af730b397e623f317c5fc4b65ed4170c28")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df2378dda086037a33c08f248418fce8e122f2fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Assignment_AddressBook.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Assignment_AddressBook.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

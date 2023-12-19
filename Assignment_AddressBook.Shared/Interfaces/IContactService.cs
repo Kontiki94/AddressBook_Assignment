@@ -20,7 +20,7 @@ public interface IContactService
     /// Grabs all contacts from list
     /// </summary>
     /// <returns>IENum of type IContact</returns>
-    IEnumerable<IContact> GetAllContactsFromList();
+    ObservableCollection<IContact> GetAllContactsFromList();
     /// <summary>
     /// updates contact within list
     /// </summary>

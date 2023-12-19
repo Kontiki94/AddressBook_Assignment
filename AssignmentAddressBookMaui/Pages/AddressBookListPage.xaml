@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pagemodels="clr-namespace:AssignmentAddressBookMaui.PageModels"
+             xmlns:model="clr-namespace:Assignment_AddressBook.Shared.Models;assembly=Assignment_AddressBook.Shared"
+             x:DataType="{x:Type pagemodels:AddressBookListPageModel}"
+             x:Class="AssignmentAddressBookMaui.Pages.AddressBookListPage"
+             Title="AddressBookListPage">
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout>
+                <ListView ItemsSource="{Binding Contactlist}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Contact">
+                            <ViewCell>
+                                <Frame CornerRadius="7" Margin="20,20,20,20" BorderColor="black">
+                                    <Grid ColumnSpacing="100" Margin="10,10,10,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <VerticalStackLayout Grid.Column="0" Spacing="20">
+                                            <Label Text="ID:" />
+                                            <Label Text="First name: " />
+                                            <Label Text="Last name: " />
+                                            <Label Text="Email: " />
+                                            <Label Text="Phone : " />
+                                            <Label Text="Address: " />
+                                        </VerticalStackLayout>
+
+                                        <VerticalStackLayout Grid.Column="1" Spacing="20">
+                                            <Label Text="{Binding Id}" />
+                                            <Label Text="{Binding FirstName}" />
+                                            <Label Text="{Binding LastName}" />
+                                            <Label Text="{Binding Email}" />
+                                            <Label Text="{Binding Phone}" />
+                                            <Label Text="{Binding Address}" />
+                                        </VerticalStackLayout>
+
+                                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="10">
+                                            <Button BackgroundColor="AliceBlue" BorderColor="Red" CornerRadius="7" Text="Remove" Command="{Binding Path=RemoveContactFromListCommand, Source={RelativeSource AncestorType={x:Type pagemodels:AddressBookListPageModel}}}" CommandParameter="{Binding Email}"/>
+                                            <Button BackgroundColor="AliceBlue" BorderColor="Yellow" CornerRadius="7" Text="Edit" CommandParameter="{Binding Email}" Command="{Binding Path=NavigateToUpdateCommand, Source={RelativeSource AncestorType={x:Type pagemodels:AddressBookListPageModel}}}"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

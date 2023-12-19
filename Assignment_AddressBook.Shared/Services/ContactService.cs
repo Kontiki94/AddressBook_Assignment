@@ -1,19 +1,20 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 namespace Assignment_AddressBook.Shared.Services;
 
 public class ContactService : IContactService
 {
     private readonly IFileManager _fileManager;
+    private ObservableCollection<IContact> _contactList = [];
+    private readonly string _filepath = @"C:\Users\hassa\source\repos\ClassLibrary\Contacts.json";
 
     public ContactService(IFileManager fileManager)
     {
         _fileManager = fileManager;
     }
 
-    private List<IContact> _contactList = [];
-    private readonly string _filepath = @"C:\Users\hassa\source\repos\ClassLibrary\Contacts.json";
 
     /// <summary>
     /// Adds contact to list and serializes object. Saves on local list and .json file at the same time
@@ -39,14 +40,14 @@ public class ContactService : IContactService
     /// Fetches all text from json file and deserializes objects into a list
     /// </summary>
     /// <returns>Deserialized objects in a list </returns>
-    public IEnumerable<IContact> GetAllContactsFromList()
+    public ObservableCollection<IContact> GetAllContactsFromList()
     {
         try
         {
             var content = _fileManager.GetContentFromFile(_filepath);
             if (!string.IsNullOrEmpty(content))
             {
-                _contactList = JsonConvert.DeserializeObject<List<IContact>>(content, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })!;
+                _contactList = JsonConvert.DeserializeObject<ObservableCollection<IContact>>(content, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })!;
                 return _contactList;
             }
         }
@@ -60,8 +61,13 @@ public class ContactService : IContactService
     /// <returns>contact with said email</returns>
     public IContact GetOneContactFromList(string email)
     {
-        var contact = _contactList.FirstOrDefault(x => x.Email.ToLower() == email.ToLower())!;
-        return contact;
+        try
+        {
+            var contact = _contactList.FirstOrDefault(x => x.Email.ToLower() == email.ToLower())!;
+            return contact;
+        }
+        catch (Exception ex) { Debug.WriteLine(ex.Message); }
+        return null!;
     }
     /// <summary>
     /// Saves to .json everytime a contact is updated
@@ -82,7 +88,7 @@ public class ContactService : IContactService
     /// Checks for contact with said email. If found removes from list and saves to .json to update the list
     /// </summary>
     /// <param name="email">uses email to check if contact exists</param>
-    /// <returns>Bool vale: if .json-save was succesful returns true</returns>
+    /// <returns>Bool value: if .json-save was succesful returns true</returns>
     public bool RemoveContactFromList(string email)
     {
         try

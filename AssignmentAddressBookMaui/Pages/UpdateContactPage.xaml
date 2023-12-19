@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pagemodels="clr-namespace:AssignmentAddressBookMaui.PageModels"
+             x:DataType="{x:Type pagemodels:UpdateContactPageModel}"
+             x:Class="AssignmentAddressBookMaui.Pages.UpdateContactPage"
+             Title="UpdateContactPage"
+             >
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout Spacing="10" WidthRequest="450">
+                <Label Text="Add your contact here!" HorizontalOptions="Center" FontSize="40" Margin="0,0,0,20"/>
+                <Frame BorderColor="Gray">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Entry Text="{Binding Contact.FirstName}" VerticalOptions="Center" MinimumWidthRequest="300"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Entry Text="{Binding Contact.LastName}" VerticalOptions="Center" MinimumWidthRequest="300"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                        <Entry Text="{Binding Contact.Email}" VerticalOptions="Center" MinimumWidthRequest="300"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                        <Entry Text="{Binding Contact.Phone}" VerticalOptions="Center" MinimumWidthRequest="300"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                        <Entry Text="{Binding Contact.Address}" VerticalOptions="Center" MinimumWidthRequest="300"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="0,40,0,0" Spacing="10">
+                    <Button Command="{Binding SaveAndUpdateCommand}" VerticalOptions="Center" Text="Save And Exit" CornerRadius="10" BackgroundColor="Gray"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
