@@ -3,6 +3,7 @@ using Assignment_AddressBook.Shared.Models;
 using Assignment_AddressBook.Shared.Services;
 using AssignmentAddressBookMaui.PageModels;
 using AssignmentAddressBookMaui.Pages;
+using CommunityToolkit.Maui;
 using Contact = Assignment_AddressBook.Shared.Models.Contact;
 
 namespace AssignmentAddressBookMaui
@@ -14,6 +15,7 @@ namespace AssignmentAddressBookMaui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -22,13 +24,18 @@ namespace AssignmentAddressBookMaui
 
             builder.Services.AddSingleton<IContact, Contact>();
             builder.Services.AddSingleton<IContactService, ContactService>();
+
             builder.Services.AddSingleton<IFileManager, FileManager>();
+
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageModel>();
+
             builder.Services.AddSingleton<AddContactPage>();
             builder.Services.AddSingleton<AddContactPageModel>();
+
             builder.Services.AddSingleton<AddressBookListPage>();
             builder.Services.AddSingleton<AddressBookListPageModel>();
+
             builder.Services.AddSingleton<UpdateContactPage>();
             builder.Services.AddSingleton<UpdateContactPageModel>();
 

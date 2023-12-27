@@ -1,3 +1,4 @@
+using Assignment_AddressBook.Shared.Models;
 using AssignmentAddressBookMaui.PageModels;
 
 namespace AssignmentAddressBookMaui.Pages;

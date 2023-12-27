@@ -24,9 +24,8 @@ public partial class UpdateContactPageModel : ObservableObject
         Contact = _contactService.GetOneContactFromList(email);
     }
 
-
     [RelayCommand]
-    public async Task SaveAndUpdate(IContact contact)
+    private async Task SaveAndUpdate(IContact contact)
     {
         if (!String.IsNullOrWhiteSpace(Contact.Email))
         {
@@ -34,14 +33,13 @@ public partial class UpdateContactPageModel : ObservableObject
 
             if (result)
             {
-                await Application.Current.MainPage.DisplayAlert("Updated", "Contact was updated", "OK");
+                await Shell.Current.DisplayAlert("Updated", "Contact was updated", "OK");
                 await Shell.Current.GoToAsync("..");
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("tast", "åsna", "OK");
+                await Shell.Current.DisplayAlert("Error", "Something went wrong trying to update contact", "OK");
             }
-
         }
     }
 }

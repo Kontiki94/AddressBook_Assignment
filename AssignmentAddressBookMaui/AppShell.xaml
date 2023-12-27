@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:AssignmentAddressBookMaui"
     xmlns:pages="clr-namespace:AssignmentAddressBookMaui.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Title="AssignmentAddressBookMaui"
+    Title="Assignment Address Book Maui"
     >
 
     <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />

@@ -10,15 +10,17 @@ namespace AssignmentAddressBookMaui.PageModels;
 public partial class AddressBookListPageModel : ObservableObject
 {
     [ObservableProperty]
-    private ObservableCollection<IContact> _contactlist;
-
+    private ObservableCollection<IContact> _contactList;
+    
     private readonly IContactService _contactService;
     private readonly UpdateContactPageModel _updateContact;
+
+
 
     public AddressBookListPageModel(IContactService contactService, UpdateContactPageModel updateContact)
     {
         _contactService = contactService;
-        Contactlist = _contactService.GetAllContactsFromList();
+        ContactList = _contactService.GetAllContactsFromList();
         _updateContact = updateContact;
     }
 
@@ -36,11 +38,11 @@ public partial class AddressBookListPageModel : ObservableObject
 
         if (removed)
         {
-            await Application.Current.MainPage.DisplayAlert("Removed", "Contact was removed!", "OK");
+            await Shell.Current.DisplayAlert("Removed", "Contact was removed!", "OK");
         }
         else
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Something went wrong", "OK");
+            await Shell.Current.DisplayAlert("Error", "Something went wrong", "OK");
         }
     }
 }

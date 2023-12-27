@@ -3,14 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AssignmentAddressBookMaui.MainPage"
              xmlns:pagemodels="clr-namespace:AssignmentAddressBookMaui.PageModels"
-             x:DataType="{x:Type pagemodels:MainPageModel}">
+             x:DataType="{x:Type pagemodels:MainPageModel}"
+             Shell.NavBarIsVisible="false"
+             >
+
+
 
     <ScrollView>
 
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+        <Grid Background="#1e1e1e">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="Welcome to your addressbook!" FontAttributes="Bold" FontSize="44"/>
+                <Image Source="white_addressbook.png" MaximumHeightRequest="400" MaximumWidthRequest="200" Margin="0,100,0,0"/>
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
                 <Button Text="Add a Contact" Command="{Binding NavigateToAddContactCommand}"/>
                 <Button Text="View Address Book" Command="{Binding NavigateToAddressBookCommand}"/>
             </HorizontalStackLayout>
+        </Grid>
     </ScrollView>
-
 </ContentPage>

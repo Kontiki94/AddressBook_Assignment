@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AssignmentAddressBookMaui.PageModels;
 
-public partial class MainPageModel :ObservableObject
+public partial class MainPageModel : ObservableObject
 {
     [RelayCommand]
     private async Task NavigateToAddContact()

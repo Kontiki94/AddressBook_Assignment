@@ -4,44 +4,61 @@
              xmlns:pagemodels="clr-namespace:AssignmentAddressBookMaui.PageModels"
              x:DataType="{x:Type pagemodels:UpdateContactPageModel}"
              x:Class="AssignmentAddressBookMaui.Pages.UpdateContactPage"
-             Title="UpdateContactPage"
+             Title="Update Contact"
+             Shell.NavBarIsVisible="false"
              >
     <ScrollView>
-        <Grid>
-            <VerticalStackLayout Spacing="10" WidthRequest="450">
-                <Label Text="Add your contact here!" HorizontalOptions="Center" FontSize="40" Margin="0,0,0,20"/>
-                <Frame BorderColor="Gray">
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+        <Grid BackgroundColor="#1e1e1e">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Spacing="10" HorizontalOptions="Center" Grid.Row="0" Margin="0,50,0,0">
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="95">
+                        <Label Text="ID: " VerticalOptions="Center"/>
+                        <Entry Text="{Binding Contact.Id}" VerticalOptions="Center" MinimumWidthRequest="300" IsEnabled="False"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                        <Label Text="First name: " VerticalOptions="Center"/>
                         <Entry Text="{Binding Contact.FirstName}" VerticalOptions="Center" MinimumWidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black">
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                        <Label Text="Last name: "  VerticalOptions="Center"/>
                         <Entry Text="{Binding Contact.LastName}" VerticalOptions="Center" MinimumWidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black">
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="75">
+                        <Label Text="Email:"  VerticalOptions="Center"/>
                         <Entry Text="{Binding Contact.Email}" VerticalOptions="Center" MinimumWidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black">
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="70">
+                        <Label Text="Phone: "  VerticalOptions="Center"/>
                         <Entry Text="{Binding Contact.Phone}" VerticalOptions="Center" MinimumWidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black">
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                <Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="60">
+                        <Label Text="Address: "  VerticalOptions="Center"/>
                         <Entry Text="{Binding Contact.Address}" VerticalOptions="Center" MinimumWidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Frame>
 
-                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="0,40,0,0" Spacing="10">
-                    <Button Command="{Binding SaveAndUpdateCommand}" VerticalOptions="Center" Text="Save And Exit" CornerRadius="10" BackgroundColor="Gray"/>
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0">
+                    <Button Command="{Binding SaveAndUpdateCommand}" VerticalOptions="Center" Text="Save And Exit"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Grid>
