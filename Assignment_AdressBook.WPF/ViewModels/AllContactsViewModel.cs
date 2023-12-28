@@ -1,10 +1,8 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-using Assignment_AddressBook.Shared.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Windows;
 
 
@@ -22,7 +20,6 @@ public partial class AllContactsViewModel : ObservableObject
     [ObservableProperty]
     private IContact? contact;
 
-
     public AllContactsViewModel(IServiceProvider serviceProvider, IContactService contactService, UpdateContactViewModel updateContactViewModel)
     {
         _serviceProvider = serviceProvider;
@@ -30,6 +27,7 @@ public partial class AllContactsViewModel : ObservableObject
         _updateContactViewModel = updateContactViewModel;
         ContactList = _contactService.GetAllContactsFromList();
     }
+
     [RelayCommand]
     public void RemoveContactFromAddressBook(string email)
     {
@@ -44,6 +42,7 @@ public partial class AllContactsViewModel : ObservableObject
             MessageBox.Show("Something went wrong");
         }
     }
+
     [RelayCommand]
     public void NavigateToUpdateContact(string email)
     {

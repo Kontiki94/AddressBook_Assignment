@@ -9,11 +9,11 @@ namespace Assignment_AdressBook.WPF.ViewModels;
 
 public partial class AddContactViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private IContact _contact = new Contact();
-
     private IContactService _contactService;
     private readonly IServiceProvider _serviceProvider;
+
+    [ObservableProperty]
+    private IContact _contact = new Contact();
 
 
     public AddContactViewModel(IServiceProvider serviceProvider, IContactService contactService)

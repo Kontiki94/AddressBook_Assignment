@@ -2,10 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pagemodels="clr-namespace:AssignmentAddressBookMaui.PageModels"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="{x:Type pagemodels:AddContactPageModel}"
-             
-             
              x:Class="AssignmentAddressBookMaui.Pages.AddContactPage"
              Title="Add Contact"
              Shell.NavBarIsVisible="false"
@@ -35,10 +32,7 @@
             <Frame>
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="75">
                     <Label Text="Email:"  VerticalOptions="Center"/>
-                    <Entry Text="{Binding Contact.Email}" VerticalOptions="Center" MinimumWidthRequest="300">
-
-                    </Entry>
-
+                    <Entry Text="{Binding Contact.Email}" VerticalOptions="Center" MinimumWidthRequest="300" />
                 </HorizontalStackLayout>
             </Frame>
                 

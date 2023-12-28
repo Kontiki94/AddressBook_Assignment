@@ -1,16 +1,19 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-using Assignment_AddressBook.Shared.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Text.RegularExpressions;
 
 namespace AssignmentAddressBookMaui.PageModels;
 
 public partial class UpdateContactPageModel : ObservableObject
 {
+    private readonly IContactService _contactService;
+    Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+
     [ObservableProperty]
     private IContact _contact;
 
-    private readonly IContactService _contactService;
 
     public UpdateContactPageModel(IContactService contactService, IContact contact)
     {
@@ -27,7 +30,9 @@ public partial class UpdateContactPageModel : ObservableObject
     [RelayCommand]
     private async Task SaveAndUpdate(IContact contact)
     {
-        if (!String.IsNullOrWhiteSpace(Contact.Email))
+        Match match = regex.Match(Contact.Email);
+
+        if (match.Success)
         {
             var result = _contactService.UpdateContactFromList();
 
@@ -40,6 +45,10 @@ public partial class UpdateContactPageModel : ObservableObject
             {
                 await Shell.Current.DisplayAlert("Error", "Something went wrong trying to update contact", "OK");
             }
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("Error", "Please enter a valid email", "OK");
         }
     }
 }

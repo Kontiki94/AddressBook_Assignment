@@ -1,11 +1,8 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-using Assignment_AddressBook.Shared.Models;
-using Assignment_AddressBook.Shared.Services;
-using AssignmentAddressBookMaui.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.ApplicationModel.Communication;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using Contact = Assignment_AddressBook.Shared.Models.Contact;
 
@@ -17,8 +14,6 @@ public partial class AddContactPageModel : ObservableObject
 
     [ObservableProperty]
     private IContact contact = new Contact();
-
-
 
     private readonly IContactService _contactService;
 
@@ -34,7 +29,7 @@ public partial class AddContactPageModel : ObservableObject
 
         if (match.Success)
         {
-            bool contactAdded = _contactService.AddContactToList(Contact);
+            var contactAdded = _contactService.AddContactToList(Contact);
             if (contactAdded)
             {
                 await Shell.Current.DisplayAlert("Added","Contact was added!", "OK");

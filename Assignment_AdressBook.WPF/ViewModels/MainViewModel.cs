@@ -5,10 +5,10 @@ namespace Assignment_AdressBook.WPF.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
+    private readonly IServiceProvider _serviceProvider;
+
     [ObservableProperty]
     private ObservableObject? _currentViewModel;
-
-    private readonly IServiceProvider _serviceProvider;
 
     public MainViewModel(IServiceProvider serviceProvider)
     {

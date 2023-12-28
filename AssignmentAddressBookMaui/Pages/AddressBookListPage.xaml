@@ -46,9 +46,7 @@
                                                     <Label Text="Phone: " />
                                                     <Label Text="{Binding Phone}" />
                                                 </HorizontalStackLayout>
-                                                
                                             </Grid>
-
                                         </VerticalStackLayout>
 
                                         <HorizontalStackLayout Grid.Column="1" Spacing="10">

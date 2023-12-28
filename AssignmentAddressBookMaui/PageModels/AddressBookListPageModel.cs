@@ -1,8 +1,6 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-using Assignment_AddressBook.Shared.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.ApplicationModel.Communication;
 using System.Collections.ObjectModel;
 
 namespace AssignmentAddressBookMaui.PageModels;
@@ -14,8 +12,6 @@ public partial class AddressBookListPageModel : ObservableObject
     
     private readonly IContactService _contactService;
     private readonly UpdateContactPageModel _updateContact;
-
-
 
     public AddressBookListPageModel(IContactService contactService, UpdateContactPageModel updateContact)
     {

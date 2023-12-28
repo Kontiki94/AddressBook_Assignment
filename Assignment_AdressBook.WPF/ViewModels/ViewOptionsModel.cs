@@ -1,6 +1,4 @@
 ﻿using Assignment_AddressBook.Shared.Interfaces;
-using Assignment_AddressBook.Shared.Models;
-using Assignment_AddressBook.Shared.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +10,6 @@ public partial class ViewOptionsModel : ObservableObject
 {
     private readonly IServiceProvider _serviceProvider;
     private IContactService _contactService;
-
 
     [ObservableProperty]
     private ObservableCollection<IContact> _contactList;
